@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تقرير إنجازات وحدة التعلم الإلكتروني – 1447هـ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green-dark: #085041;
+    --green-mid:  #0F6E56;
+    --green-light:#E1F5EE;
+    --green-pale: #F0FAF6;
+    --teal:       #1D9E75;
+    --border:     rgba(8,80,65,0.12);
+    --text-main:  #1a1a1a;
+    --text-muted: #5a5a5a;
+    --text-faint: #8a8a8a;
+    --bg:         #ffffff;
+    --surface:    #F7FBFA;
+    --gold:       #B8860B;
+    --gold-light: #FFF8E1;
+    --silver:     #6B7280;
+    --silver-light:#F3F4F6;
+    --bronze:     #92400E;
+    --bronze-light:#FEF3C7;
+    --purple:     #5B21B6;
+    --purple-light:#EDE9FE;
+    --radius-sm:  6px;
+    --radius-md:  10px;
+    --radius-lg:  14px;
+  }
+  body { font-family: 'Cairo', 'Segoe UI', sans-serif; background: var(--surface); color: var(--text-main); min-height: 100vh; }
+
+  .header { background: var(--green-dark); padding: 2rem 2.5rem 1.75rem; }
+  .header-inner { max-width: 860px; margin: 0 auto; }
+  .header-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+  .kau-badge { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing:.04em; line-height:1.6; text-align:left; }
+  .kau-badge strong { color: rgba(255,255,255,0.9); display:block; font-size:12px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #fff; line-height: 1.3; }
+  .header p { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+  .year-tag { display:inline-block; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.85); font-size:12px; padding:3px 12px; border-radius:20px; margin-top:10px; }
+
+  .kpi-strip { max-width:860px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:0; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius-md); overflow:hidden; }
+  .kpi { padding:.9rem 1rem; border-left:1px solid rgba(255,255,255,0.1); text-align:center; }
+  .kpi:last-child { border-left:none; }
+  .kpi .num { font-size:26px; font-weight:700; color:#fff; line-height:1; }
+  .kpi .lbl { font-size:10px; color:rgba(255,255,255,0.6); margin-top:4px; line-height:1.4; }
+
+  .main { max-width:860px; margin:0 auto; padding:2rem 2.5rem 3rem; }
+
+  .section { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-lg); margin-bottom:10px; overflow:hidden; }
+  .section-toggle { width:100%; background:none; border:none; padding:1rem 1.25rem; display:flex; align-items:center; gap:12px; cursor:pointer; text-align:right; transition:background .15s; }
+  .section-toggle:hover { background:var(--green-pale); }
+  .section-icon { width:36px; height:36px; background:var(--green-light); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:17px; }
+  .section-title { flex:1; font-size:15px; font-weight:600; color:var(--green-dark); text-align:right; }
+  .section-sub { font-size:11px; font-weight:400; color:var(--text-faint); display:block; margin-top:1px; }
+  .section-count { font-size:12px; font-weight:600; color:var(--green-mid); background:var(--green-light); padding:3px 10px; border-radius:20px; white-space:nowrap; }
+  .chevron { width:18px; height:18px; color:var(--green-mid); transition:transform .25s; flex-shrink:0; }
+  .chevron svg { display:block; }
+  .section.open .chevron { transform:rotate(180deg); }
+  .section-body { display:none; border-top:1px solid var(--border); padding:1.25rem 1.4rem; background:var(--green-pale); }
+  .section.open .section-body { display:block; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .three-col { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+
+  .bar-row { margin-bottom:14px; }
+  .bar-label { display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); margin-bottom:5px; }
+  .bar-label strong { color:var(--green-dark); font-weight:600; }
+  .bar-track { background:var(--green-light); border-radius:4px; height:9px; overflow:hidden; }
+  .bar-fill { height:9px; border-radius:4px; background:var(--green-mid); }
+
+  .stat-inline { display:flex; align-items:center; gap:8px; padding:10px 0; border-bottom:1px solid var(--border); }
+  .stat-inline:last-child { border-bottom:none; }
+  .stat-dot { width:8px; height:8px; border-radius:50%; background:var(--teal); flex-shrink:0; }
+  .stat-text { font-size:13px; color:var(--text-main); flex:1; }
+  .stat-val { font-size:13px; font-weight:600; color:var(--green-dark); white-space:nowrap; }
+
+  .event-list { list-style:none; }
+  .event-item { display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+  .event-item:last-child { border-bottom:none; padding-bottom:0; }
+  .event-date-badge { flex-shrink:0; background:var(--green-light); color:var(--green-dark); font-size:10px; font-weight:600; padding:4px 8px; border-radius:var(--radius-sm); text-align:center; line-height:1.4; min-width:58px; }
+  .event-info { flex:1; }
+  .event-name { font-size:13px; font-weight:600; color:var(--text-main); line-height:1.4; }
+  .event-desc { font-size:11px; color:var(--text-faint); margin-top:3px; line-height:1.5; }
+  .event-count { flex-shrink:0; font-size:12px; font-weight:600; color:var(--green-mid); white-space:nowrap; padding-top:2px; }
+
+  .step-list { list-style:none; }
+  .step-item { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); align-items:center; }
+  .step-item:last-child { border-bottom:none; }
+  .step-check { width:24px; height:24px; border-radius:50%; background:var(--green-mid); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .step-check svg { width:13px; height:13px; stroke:#fff; stroke-width:2.5; fill:none; }
+  .step-text { font-size:13px; color:var(--text-main); }
+
+  /* ── Winner cards ── */
+  .winners-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px; }
+  .winner-card { border-radius:var(--radius-md); padding:1rem; border:1px solid; }
+  .winner-card.gold   { background:var(--gold-light);   border-color:rgba(184,134,11,0.25); }
+  .winner-card.silver { background:var(--silver-light); border-color:rgba(107,114,128,0.25); }
+  .winner-card.bronze { background:var(--bronze-light); border-color:rgba(146,64,14,0.22); }
+  .winner-card.popular{ background:var(--purple-light); border-color:rgba(91,33,182,0.2); grid-column:span 2; }
+  .winner-rank { font-size:10px; font-weight:700; letter-spacing:.06em; margin-bottom:4px; }
+  .winner-rank.gold   { color:var(--gold); }
+  .winner-rank.silver { color:var(--silver); }
+  .winner-rank.bronze { color:var(--bronze); }
+  .winner-rank.popular{ color:var(--purple); }
+  .winner-name { font-size:14px; font-weight:700; margin-bottom:4px; }
+  .winner-name.gold   { color:var(--gold); }
+  .winner-name.silver { color:var(--silver); }
+  .winner-name.bronze { color:var(--bronze); }
+  .winner-name.popular{ color:var(--purple); }
+  .winner-desc { font-size:11px; color:var(--text-muted); line-height:1.5; margin-bottom:6px; }
+  .winner-team { font-size:10px; color:var(--text-faint); line-height:1.6; }
+
+  .workshop-item { display:flex; gap:10px; padding:10px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+  .workshop-item:last-child { border-bottom:none; }
+  .ws-num { flex-shrink:0; font-size:11px; font-weight:700; color:var(--green-mid); width:20px; padding-top:1px; }
+  .ws-info { flex:1; }
+  .ws-title { font-size:13px; font-weight:600; color:var(--text-main); }
+  .ws-meta { font-size:11px; color:var(--text-faint); margin-top:2px; }
+
+  /* ── Training courses ── */
+  .course-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem 1.1rem; margin-bottom:10px; display:flex; gap:14px; align-items:flex-start; }
+  .course-card:last-child { margin-bottom:0; }
+  .course-icon { width:40px; height:40px; border-radius:var(--radius-sm); background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+  .course-body { flex:1; }
+  .course-title { font-size:13px; font-weight:700; color:var(--green-dark); margin-bottom:3px; }
+  .course-presenter { font-size:11px; color:var(--text-muted); margin-bottom:6px; }
+  .course-tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tag { font-size:10px; padding:3px 9px; border-radius:20px; font-weight:600; }
+  .tag-green  { background:var(--green-light); color:var(--green-dark); }
+  .tag-blue   { background:#EFF6FF; color:#1D4ED8; }
+  .tag-orange { background:#FFF7ED; color:#C2410C; }
+  .tag-gray   { background:#F3F4F6; color:#374151; }
+  .course-stat { flex-shrink:0; text-align:center; }
+  .course-stat .num { font-size:22px; font-weight:700; color:var(--green-dark); line-height:1; }
+  .course-stat .lbl { font-size:10px; color:var(--text-faint); margin-top:2px; }
+  .course-pending { background:#FFFBEB; border:1px dashed rgba(180,130,0,0.3); border-radius:var(--radius-md); padding:.9rem 1.1rem; display:flex; gap:12px; align-items:center; }
+  .pending-icon { font-size:20px; }
+  .pending-text { font-size:12px; color:#92400E; }
+  .pending-text strong { font-weight:700; display:block; font-size:13px; }
+
+  .mini-stat { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-md); padding:.9rem; text-align:center; }
+  .mini-stat .num { font-size:22px; font-weight:700; color:var(--green-dark); line-height:1; }
+  .mini-stat .lbl { font-size:10px; color:var(--text-faint); margin-top:3px; }
+
+  .footer { text-align:center; padding:1.5rem; font-size:11px; color:var(--text-faint); border-top:1px solid var(--border); max-width:860px; margin:0 auto; }
+
+  @media (max-width:600px) {
+    .header { padding:1.5rem 1.25rem 1.25rem; }
+    .main { padding:1.25rem 1.25rem 2rem; }
+    .kpi-strip { grid-template-columns:repeat(2,1fr); }
+    .two-col, .three-col { grid-template-columns:1fr; }
+    .winners-grid { grid-template-columns:1fr; }
+    .winner-card.popular { grid-column:span 1; }
+    .header-top { flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <h1>تقرير إنجازات وحدة التعلم الإلكتروني</h1>
+        <p>كلية الحاسبات وتقنية المعلومات · جامعة الملك عبد العزيز</p>
+        <span class="year-tag">العام الدراسي 1447 هـ</span>
+      </div>
+      <div class="kau-badge">
+        <strong>FCIT – KAU</strong>
+        إعداد: د. لولوه بنت محمد الحريقي<br>رئيسة وحدة التعلم الإلكتروني
+      </div>
+    </div>
+    <div class="kpi-strip">
+      <div class="kpi">
+        <div class="num">150</div>
+        <div class="lbl">شعبة دراسية<br>تمّ دمجها</div>
+      </div>
+      <div class="kpi">
+        <div class="num">13</div>
+        <div class="lbl">رابطاً افتراضياً<br>أُنشئ في الفصلين</div>
+      </div>
+      <div class="kpi">
+        <div class="num">541+</div>
+        <div class="lbl">مستفيد/ة من<br>الفعاليات والمبادرات</div>
+      </div>
+      <div class="kpi">
+        <div class="num">142</div>
+        <div class="lbl">متدرباً/ة في<br>الدورات التدريبية</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ① دمج الشعب -->
+  <div class="section open" id="s1">
+    <button class="section-toggle" onclick="toggle('s1')">
+      <div class="section-icon">🔗</div>
+      <div class="section-title">
+        دمج الشعب الدراسية على البلاك بورد
+        <span class="section-sub">الفصل الأول والثاني · 1447هـ</span>
+      </div>
+      <span class="section-count">150 شعبة</span>
+      <div class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    </button>
+    <div class="section-body">
+      <div class="bar-row">
+        <div class="bar-label"><span>الفصل الأول</span><strong>80 مادة</strong></div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>الفصل الثاني</span><strong>70 مادة</strong></div>
+        <div class="bar-track"><div class="bar-fill" style="width:87.5%"></div></div>
+      </div>
+      <p style="font-size:12px;color:var(--text-faint);margin-top:8px;line-height:1.6">يتم استقبال طلبات الدمج من أعضاء هيئة التدريس بداية الفصل الدراسي ومن ثم استخدام نظام خاص بالدمج.</p>
+    </div>
+  </div>
+
+  <!-- ② الجلسات الافتراضية -->
+  <div class="section" id="s2">
+    <button class="section-toggle" onclick="toggle('s2')">
+      <div class="section-icon">📹</div>
+      <div class="section-title">
+        إنشاء الجلسات الافتراضية
+        <span class="section-sub">Blackboard Collaborate · دورات ومجالس الأقسام</span>
+      </div>
+      <span class="section-count">13 رابطاً</span>
+      <div class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    </button>
+    <div class="section-body">
+      <div class="stat-inline">
+        <div class="stat-dot"></div>
+        <span class="stat-text">روابط الدورات التدريبية لأعضاء هيئة التدريس والطلاب</span>
+        <span class="stat-val">شاملة</span>
+      </div>
+      <div class="stat-inline">
+        <div class="stat-dot"></div>
+        <span class="stat-text">روابط مجالس الأقسام الافتراضية</span>
+        <span class="stat-val">شاملة</span>
+      </div>
+      <div class="stat-inline">
+        <div class="stat-dot"></div>
+        <span class="stat-text">إجمالي الروابط المُنشأة في الفصلين</span>
+        <span class="stat-val">13 رابطاً</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-faint);margin-top:10px;line-height:1.6">يتم إنشاء الجلسات بناءً على طلب أعضاء هيئة التدريس، عن طريق التواصل مع الوحدة وإرسال بيانات الجلسة (اسم الجلسة/الورشة والتاريخ والوقت) ومن ثم يتم إرسال رابط الحضور.</p>
+    </div>
+  </div>
+
+  <!-- ③ متابعة القوالب -->
+  <div class="section" id="s3">
+    <button class="section-toggle" onclick="toggle('s3')">
+      <div class="section-icon">📋</div>
+      <div class="section-title">
+        متابعة تحديث قوالب المقررات على البلاك بورد
+        <span class="section-sub">التأكد من جاهزية المواد قبل بداية كل فصل</span>
+      </div>
+      <span class="section-count">4 خطوات مكتملة</span>
+      <div class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    </button>
+    <div class="section-body">
+      <ul class="step-list">
+        <li class="step-item">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span class="step-text">إرسال قائمة مطوري القوالب لرؤساء الأقسام ومنسقي التعلم الإلكتروني</span>
+        </li>
+        <li class="step-item">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span class="step-text">توجيه المنسقين لمتابعة المطورين والتأكد من جاهزية القوالب</span>
+        </li>
+        <li class="step-item">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span class="step-text">مراجعة القوالب وإضافة أي تعديلات قبل بداية الفصل التالي</span>
+        </li>
+        <li class="step-item">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span class="step-text">حل الصعوبات التقنية التي يواجهها المطورون بالتنسيق مع عمادة التعلم الإلكتروني</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ④ التحول إلى بلاكبورد الترا -->
+  <div class="section" id="s4">
+    <button class="section-toggle" onclick="toggle('s4')">
+      <div class="section-icon">🖥️</div>
+      <div class="section-title">
+        التأكد من جاهزية أعضاء هيئة التدريس للتحول إلى نظام بلاكبورد الترا
+        <span class="section-sub">بالتعاون مع عمادة التعلم الإلكتروني والتعليم عن بعد</span>
+      </div>
+      <span class="section-count">3 محاور</span>
+      <div class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    </button>
+    <div class="section-body">
+      <ul class="step-list">
+        <li class="step-item">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span class="step-text">توفير دورات تدريبية مخصصة لأعضاء هيئة التدريس في الكلية بالتعاون مع عمادة التعلم الإلكتروني والتعليم عن بعد</span>
+        </li>
+        <li class="step-item">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span class="step-text">توفير الأدلة والبطاقات الخاصة بنظام بلاكبورد الترا بالتعاون مع عمادة التعلم الإلكتروني والتعليم عن بعد</span>
+        </li>
+        <li class="step-item">
+          <div class="step-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <span class="step-text">تقديم الدعم الفني فيما يخص نظام التعلم الإلكتروني</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ⑤ الدورات التدريبية -->
+  <div class="section" id="s4b">
+    <button class="section-toggle" onclick="toggle('s4b')">
+      <div class="section-icon">🎓</div>
+      <div class="section-title">
+        تطوير مهارات أعضاء هيئة التدريس في استخدام الذكاء الاصطناعي في التعلم الإلكتروني
+        <span class="section-sub">بالتنسيق مع وحدة التدريب في الكلية</span>
+      </div>
+      <span class="section-count">142 مستفيد/ة</span>
+      <div class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    </button>
+    <div class="section-body">
+
+      <div class="two-col" style="margin-bottom:1.25rem">
+        <div class="mini-stat"><div class="num">2</div><div class="lbl">دورات مُنفَّذة</div></div>
+        <div class="mini-stat"><div class="num">142</div><div class="lbl">إجمالي المستفيدين</div></div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">⚙️</div>
+        <div class="course-body">
+          <div class="course-title">Agentic AI – من النماذج التوليدية إلى الأنظمة ذاتية التنفيذ</div>
+          <div class="course-presenter">التقديم: د. سميه الإبداعي &nbsp;|&nbsp; قسم علوم الحاسب</div>
+          <div class="course-tags">
+            <span class="tag tag-green">Agentic AI</span>
+            <span class="tag tag-blue">أنظمة ذاتية التنفيذ</span>
+            <span class="tag tag-orange">ذكاء اصطناعي متقدم</span>
+          </div>
+        </div>
+        <div class="course-stat">
+          <div class="num">92</div>
+          <div class="lbl">مستفيد/ة</div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">🤖</div>
+        <div class="course-body">
+          <div class="course-title">Rethinking Assignments in the AI Era – إعادة التفكير في التقييمات في عصر الذكاء الاصطناعي</div>
+          <div class="course-presenter">التقديم: د. إيمان الحربي &nbsp;|&nbsp; قسم علوم الحاسب</div>
+          <div class="course-tags">
+            <span class="tag tag-green">تصميم التقييمات</span>
+            <span class="tag tag-blue">الذكاء الاصطناعي</span>
+            <span class="tag tag-orange">إعادة التفكير التعليمي</span>
+          </div>
+        </div>
+        <div class="course-stat">
+          <div class="num">50</div>
+          <div class="lbl">مستفيد/ة</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ⑤ مشاركات وحدة التعلم الإلكتروني وسفيرة كلية الحاسبات -->
+  <div class="section" id="s5">
+    <button class="section-toggle" onclick="toggle('s5')">
+      <div class="section-icon">🤝</div>
+      <div class="section-title">
+        مشاركات وحدة التعلم الإلكتروني وسفيرة كلية الحاسبات
+        <span class="section-sub">مبادرات تعلم آمن وتعلم ذكي · الفصل الأول 1447هـ</span>
+      </div>
+      <span class="section-count">541+ مستفيد/ة</span>
+      <div class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    </button>
+    <div class="section-body">
+
+      <!-- sub-tabs -->
+      <div style="display:flex;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap">
+        <button onclick="showTab('tab-safe','tab-smart',this)" id="btn-safe"
+          style="font-family:inherit;font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;border:1.5px solid var(--green-mid);background:var(--green-mid);color:#fff;cursor:pointer">
+          🛡️ مبادرة تعلم آمن
+        </button>
+        <button onclick="showTab('tab-smart','tab-safe',this)" id="btn-smart"
+          style="font-family:inherit;font-size:12px;font-weight:600;padding:6px 16px;border-radius:20px;border:1.5px solid var(--border);background:var(--bg);color:var(--green-dark);cursor:pointer">
+          🧠 مبادرة تعلم ذكي – هاكاثون نهج
+        </button>
+      </div>
+
+      <!-- Tab: تعلم آمن -->
+      <div id="tab-safe">
+        <ul class="event-list">
+          <li class="event-item">
+            <div class="event-date-badge">2 أكتوبر<br>2025</div>
+            <div class="event-info">
+              <div class="event-name">مسابقة "عزّنا بطموحنا" بريشة الذكاء الاصطناعي</div>
+              <div class="event-desc">تصميم صور تعبّر عن الوطن ورؤية 2030 · تكريم الفائزات في احتفال اليوم الوطني</div>
+            </div>
+            <div class="event-count">60 مشارك/ة</div>
+          </li>
+          <li class="event-item">
+            <div class="event-date-badge">11 أكتوبر<br>2025</div>
+            <div class="event-info">
+              <div class="event-name">لقاء Cyber Kickoff – بداية رحلتك في الأمن السيبراني</div>
+              <div class="event-desc">بالتعاون مع نادي الأمن السيبراني · مسارات ومنصات وشهادات مهنية</div>
+            </div>
+            <div class="event-count">45 مستفيد/ة</div>
+          </li>
+          <li class="event-item">
+            <div class="event-date-badge">27 أكتوبر<br>2025</div>
+            <div class="event-info">
+              <div class="event-name">الجلسة الحوارية CyberSafe Learning</div>
+              <div class="event-desc">بالتعاون مع كليتي التربية والهندسة · نخبة من الأكاديميات والمتخصصات</div>
+            </div>
+            <div class="event-count">—</div>
+          </li>
+          <li class="event-item">
+            <div class="event-date-badge">27 أكتوبر<br>2025</div>
+            <div class="event-info">
+              <div class="event-name">مناظرة "هل تقودنا التقنية نحو تعلّم أكثر أماناً؟"</div>
+              <div class="event-desc">فريق مؤيد ومعارض · تصويت مباشر من الحضور</div>
+            </div>
+            <div class="event-count">—</div>
+          </li>
+          <li class="event-item">
+            <div class="event-date-badge">3 نوفمبر<br>2025</div>
+            <div class="event-info">
+              <div class="event-name">مبادرة دقيقة أمان</div>
+              <div class="event-desc">محتوى توعوي عبر منصات التواصل · مشاركة 17+ جهة وناداً طلابياً</div>
+            </div>
+            <div class="event-count">54,000+ مشاهدة</div>
+          </li>
+          <li class="event-item">
+            <div class="event-date-badge">4 نوفمبر<br>2025</div>
+            <div class="event-info">
+              <div class="event-name">تحدي الدرع الأزرق</div>
+              <div class="event-desc">سيناريوهات سيبرانية واقعية تفاعلية · تحليل المواقف واتخاذ القرار</div>
+            </div>
+            <div class="event-count">—</div>
+          </li>
+          <li class="event-item">
+            <div class="event-date-badge">5–8 نوفمبر<br>2025</div>
+            <div class="event-info">
+              <div class="event-name">تحدي وسام الحصانة الرقمية</div>
+              <div class="event-desc">مهام يومية رقمية لمدة 4 أيام · شهادة مشاركة لمن أتمّ جميع المهام</div>
+            </div>
+            <div class="event-count">90+ مشارك/ة</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Tab: هاكاثون نهج -->
+      <div id="tab-smart" style="display:none">
+
+        <div class="three-col" style="margin-bottom:1.25rem">
+          <div class="mini-stat"><div class="num">25</div><div class="lbl">فريقاً مشاركاً</div></div>
+          <div class="mini-stat"><div class="num">200+</div><div class="lbl">حضور المعسكر الافتراضي</div></div>
+          <div class="mini-stat"><div class="num">140+</div><div class="lbl">زائر المعرض الختامي</div></div>
+        </div>
+
+        <p style="font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:10px">المشاريع الفائزة</p>
+        <div class="winners-grid">
+          <div class="winner-card gold">
+            <div class="winner-rank gold">🥇 المركز الأول</div>
+            <div class="winner-name gold">ReportTutor</div>
+            <div class="winner-desc">منصة ذكية تساعد الطلاب على كتابة التقارير الأكاديمية بدعم الذكاء الاصطناعي وتقديم إرشادات لتحسين الجودة.</div>
+            <div class="winner-team">الشيماء رياض مطبق · شيماء محمد وهيب · وعد النهدي · سارة العمودي</div>
+          </div>
+          <div class="winner-card silver">
+            <div class="winner-rank silver">🥈 المركز الثاني</div>
+            <div class="winner-name silver">SmartCast</div>
+            <div class="winner-desc">منصة تحوّل المحاضرات الجامعية إلى محتوى تفاعلي بأسلوب البودكاست لمراجعة أكثر مرونة.</div>
+            <div class="winner-team">دانة الحربي · أصالة محمود · تالا صيقل · جنا الغامدي</div>
+          </div>
+          <div class="winner-card bronze">
+            <div class="winner-rank bronze">🥉 المركز الثالث</div>
+            <div class="winner-name bronze">EduPatient</div>
+            <div class="winner-desc">محاكاة طبية ذكية لطلاب التخصصات الصحية للتدرّب على تشخيص الحالات عبر سيناريوهات واقعية.</div>
+            <div class="winner-team">خديجة باعقيل · هناء يوسف حاجي · ريم الزهراني</div>
+          </div>
+          <div class="winner-card popular">
+            <div class="winner-rank popular">⭐ جائزة الفريق الأكثر شعبية</div>
+            <div class="winner-name popular">فريق أفق</div>
+            <div class="winner-desc">حصل على أعلى تفاعل خلال المعرض المصاحب للهاكاثون.</div>
+            <div class="winner-team">لمى عبدالله حسن · جنى الحبيشي · جنا أحمد إبراهيم · شادن الشريف</div>
+          </div>
+        </div>
+
+        <p style="font-size:12px;font-weight:600;color:var(--text-muted);margin:1rem 0 10px">ورش المعسكر الافتراضي</p>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:.75rem 1rem">
+          <div class="workshop-item">
+            <span class="ws-num">1</span>
+            <div class="ws-info">
+              <div class="ws-title">من فكرة إلى خوارزمية – إمكانيات الذكاء الاصطناعي في التعليم</div>
+              <div class="ws-meta">د. ميادة المصري · 14 نوفمبر 2025</div>
+            </div>
+          </div>
+          <div class="workshop-item">
+            <span class="ws-num">2</span>
+            <div class="ws-info">
+              <div class="ws-title">من الفكرة إلى النموذج الأولي باستخدام أدوات الذكاء الاصطناعي</div>
+              <div class="ws-meta">د. نورة المالكي · 15 نوفمبر 2025</div>
+            </div>
+          </div>
+          <div class="workshop-item">
+            <span class="ws-num">3</span>
+            <div class="ws-info">
+              <div class="ws-title">إعداد وتقديم العروض بدعم أدوات الذكاء الاصطناعي</div>
+              <div class="ws-meta">رؤى الزبيدي · 16 نوفمبر 2025</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  وحدة التعلم الإلكتروني والتعليم عن بُعد · كلية الحاسبات وتقنية المعلومات · جامعة الملك عبد العزيز – فرع السليمانية
+</div>
+
+<script>
+function toggle(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+function showTab(showId, hideId, btn) {
+  document.getElementById(showId).style.display = 'block';
+  document.getElementById(hideId).style.display = 'none';
+  var btns = btn.parentElement.querySelectorAll('button');
+  btns.forEach(function(b) {
+    b.style.background = 'var(--bg)';
+    b.style.color = 'var(--green-dark)';
+    b.style.borderColor = 'var(--border)';
+  });
+  btn.style.background = 'var(--green-mid)';
+  btn.style.color = '#fff';
+  btn.style.borderColor = 'var(--green-mid)';
+}
+</script>
+</body>
+</html>
